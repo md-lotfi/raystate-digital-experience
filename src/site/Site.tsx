@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Check, Mail, Menu, Plus, X, Facebook, Instagram } from "lucide-react";
 import { NetworkCanvas } from "./NetworkCanvas";
 import { BRAND, CONTACT_EMAIL, PRODUCTS, SECTIONS, SOCIAL, type SectionId } from "./config";
@@ -60,9 +59,8 @@ function LangSwitch({ lang, t, active, className = "" }: { lang: Lang; t: Dict; 
       {LANGS.map((l, i) => (
         <span key={l} className="flex items-center gap-1">
           {i > 0 && <span aria-hidden className="text-border">|</span>}
-          <Link
-            to={LANG_PATH[l]}
-            hash={active || undefined}
+          <a
+            href={LANG_PATH[l] + (active ? `#${active}` : "")}
             hrefLang={l}
             lang={l}
             aria-current={l === lang ? "true" : undefined}
@@ -71,7 +69,7 @@ function LangSwitch({ lang, t, active, className = "" }: { lang: Lang; t: Dict; 
             } ${l === "ar" ? "font-arabic" : ""}`}
           >
             {LANG_LABEL[l]}
-          </Link>
+          </a>
         </span>
       ))}
     </nav>

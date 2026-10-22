@@ -47,15 +47,16 @@ export function NetworkCanvas() {
       const max = Math.min(170, w / 6);
       for (let i = 0; i < pts.length; i++) {
         for (let j = i + 1; j < pts.length; j++) {
-          const dx = pts[i].x - pts[j].x,
-            dy = pts[i].y - pts[j].y;
+          const a = pts[i]!, b2 = pts[j]!;
+          const dx = a.x - b2.x,
+            dy = a.y - b2.y;
           const d = Math.hypot(dx, dy);
           if (d < max) {
             ctx.strokeStyle = `rgba(103,232,249,${(1 - d / max) * 0.22})`;
             ctx.lineWidth = 0.7;
             ctx.beginPath();
-            ctx.moveTo(pts[i].x, pts[i].y);
-            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b2.x, b2.y);
             ctx.stroke();
           }
         }
@@ -88,7 +89,7 @@ export function NetworkCanvas() {
     start();
 
     const io = new IntersectionObserver(([e]) => {
-      visible = e.isIntersecting;
+      visible = e?.isIntersecting ?? true;
       start();
     });
     io.observe(canvas);
