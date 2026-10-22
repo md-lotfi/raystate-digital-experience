@@ -12,6 +12,6 @@ describe("RayState content rules", () => {
   it("never presents Staffly Employee Access as released", () => {
     expect(DICTS.en.products.items.staffly.note).toMatch(/next release/);
     expect(DICTS.fr.products.items.staffly.note).toMatch(/prochaine version/);
-    expect(DICTS.ar.products.items.staffly.note).toMatch(/الإصدار القادم/);
+    expect(DICTS.ar.products.items.staffly.note).toMatch(/للإصدار القادم/);
   });
 });
