@@ -1,0 +1,10 @@
+{
+  "destination": "https://raystate.com/",
+  "error_correction": "H",
+  "quiet_zone_modules": 4,
+  "png_size": [
+    1480,
+    1840
+  ],
+  "generator": "qrcode 1.5.4 and Pillow; conversion-time tools only"
+}

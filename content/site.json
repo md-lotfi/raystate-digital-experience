@@ -1,0 +1,37 @@
+{
+  "origin": "https://raystate.com",
+  "email": "contact@raystate.com",
+  "publisher": "Laissaoui Mohammed Lotfi",
+  "country": "Algeria",
+  "document_date": "2026-10-22",
+  "location": {
+    "latitude": 36.810866,
+    "longitude": 5.778244,
+    "zoom": 17
+  },
+  "brand": {
+    "mark": "assets/raystate-mark.jpg",
+    "banner": "assets/raystate-banner.webp"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/raystate.tech/",
+    "instagram": "https://www.instagram.com/raystate.dev/"
+  },
+  "products": {
+    "ubee": {
+      "name": "UBee",
+      "site": "https://ubee.raystate.com",
+      "play": "https://play.google.com/store/apps/details?id=com.raystate.ubee"
+    },
+    "coachin": {
+      "name": "CoachIn",
+      "site": "https://coachin.raystate.com",
+      "play": "https://play.google.com/store/apps/details?id=com.raystate.coachin"
+    },
+    "staffly": {
+      "name": "Staffly",
+      "site": "https://staffly.raystate.com",
+      "play": "https://play.google.com/store/apps/details?id=com.raystate.staffly"
+    }
+  }
+}
