@@ -1,0 +1,508 @@
+export type Lang = "en" | "fr" | "ar";
+export const LANGS: Lang[] = ["en", "fr", "ar"];
+export const LANG_PATH: Record<Lang, "/" | "/fr/" | "/ar/"> = { en: "/", fr: "/fr/", ar: "/ar/" };
+export const LANG_LABEL: Record<Lang, string> = { en: "EN", fr: "FR", ar: "العربية" };
+export const langFromPath = (p: string): Lang =>
+  p.startsWith("/ar") ? "ar" : p.startsWith("/fr") ? "fr" : "en";
+
+type ProductCopy = {
+  category: string;
+  audience: string;
+  description: string;
+  capabilities: string[];
+  note?: string;
+  shotAlts: string[];
+};
+
+const en = {
+  meta: {
+    title: "RayState — Practical apps, websites and custom business software",
+    description:
+      "RayState builds UBee, CoachIn and Staffly, and designs custom websites, mobile apps and business software in English, French and Arabic.",
+  },
+  a11y: {
+    skip: "Skip to content",
+    home: "RayState home",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
+    mainNav: "Main navigation",
+    language: "Choose language",
+    newTab: "(opens in a new tab)",
+    iconAlt: (n: string) => `${n} app icon`,
+  },
+  nav: {
+    products: "Products",
+    services: "Services",
+    approach: "Approach",
+    about: "About",
+    contact: "Contact",
+    cta: "Start a project",
+  },
+  hero: {
+    eyebrow: "Software studio & product maker",
+    title1: "Useful software.",
+    title2: "Built around real work.",
+    lead: "RayState creates practical apps, modern websites, and custom business software—with clear interfaces and multilingual experiences.",
+    primary: "Explore our products",
+    secondary: "Start a project",
+    portfolio: "Our apps",
+  },
+  products: {
+    eyebrow: "Our products",
+    title: "Three apps for everyday business operations.",
+    lead: "Each app is a separate product, designed for one kind of business. They are currently available for Android.",
+    audienceLabel: "For",
+    explore: (n: string) => `Explore ${n}`,
+    play: "Get it on Google Play",
+    items: {
+      ubee: {
+        category: "POS and inventory for independent shops",
+        audience: "Shop owners and small retail businesses",
+        description:
+          "Run the counter from your phone: record sales, keep stock in order and know who still owes you.",
+        capabilities: [
+          "Mobile point of sale with barcode scanning",
+          "Product and stock management",
+          "Customer balances and debt settlements",
+          "Invoices, receipts, expenses and reports",
+        ],
+        note: "Core operations work offline.",
+        shotAlts: ["UBee home screen", "UBee main menu", "UBee app screen"],
+      },
+      coachin: {
+        category: "Gym memberships, sessions and attendance",
+        audience: "Gym owners, trainers, dojos and fitness studios",
+        description:
+          "Keep members, session packages and check-ins in one place, right at the front desk.",
+        capabilities: [
+          "Member profiles with session packages and expiry dates",
+          "NFC and QR check-in",
+          "Attendance, payment records and digital passes",
+          "Cardio logs and HIIT timers",
+        ],
+        note: "Core operations work offline.",
+        shotAlts: ["CoachIn NFC check-in screen", "CoachIn new subscriber form", "CoachIn PIN screen"],
+      },
+      staffly: {
+        category: "Staff, attendance and HR administration",
+        audience: "Businesses managing a team from a shared workplace device",
+        description:
+          "Track who is in, plan schedules and handle leave and pay records from one workplace device.",
+        capabilities: [
+          "Employee profiles, attendance and breaks",
+          "Work schedules and leave management",
+          "Gross payroll calculations and recorded payments",
+          "Reports and document exports",
+        ],
+        note: "Core HR workflows work offline. Employee Access is announced for the next release.",
+        shotAlts: ["Staffly attendance screen", "Staffly employee profile", "Staffly checkpoint screen"],
+      },
+    } satisfies Record<string, ProductCopy>,
+  },
+  services: {
+    eyebrow: "Services",
+    title: "Have something specific in mind? We can build it with you.",
+    lead: "Beyond our own products, we design and develop software for businesses and organizations.",
+    deliverables: "Possible projects",
+    items: [
+      {
+        title: "Website design and development",
+        body: "Modern responsive business websites, product showcases and purpose-built web experiences.",
+        examples: ["Company or studio website", "Product launch page", "Multilingual site (EN · FR · AR)"],
+      },
+      {
+        title: "Mobile application development",
+        body: "Applications designed around real user workflows and the platforms you need to support.",
+        examples: ["Customer-facing app", "Field or front-desk tool", "Companion app for a service"],
+      },
+      {
+        title: "Custom business software",
+        body: "Tools for operational processes, recordkeeping and workflows specific to your business.",
+        examples: ["Internal management tool", "Records and tracking system", "Workflow automation"],
+      },
+    ],
+    note: "Offline support, platforms and features are agreed per project.",
+    cta: "Tell us what you want to build",
+  },
+  approach: {
+    eyebrow: "Approach",
+    title: "How we propose to work together.",
+    steps: [
+      { title: "Understand", body: "Clarify the audience, workflow, problem and constraints." },
+      { title: "Design", body: "Shape the structure, interface and interactions." },
+      { title: "Build", body: "Implement the agreed experience and functionality." },
+      { title: "Validate and hand over", body: "Check important workflows and prepare delivery." },
+    ],
+    note: "Scope and timelines are defined together for each project.",
+  },
+  about: {
+    eyebrow: "About RayState",
+    title: "Software that fits the way people actually work.",
+    body: [
+      "RayState makes practical software for real business activities: selling at a counter, welcoming members at a gym, keeping track of a team.",
+      "We care about clear interfaces, everyday workflows that stay simple, and products that speak to people in English, French and Arabic.",
+    ],
+    points: ["Practical tools for real work", "Clear, considered interfaces", "English, French and Arabic", "Everyday workflows first"],
+    tagline: "Innovative Apps. Smarter Everyday.",
+    bannerAlt: "RayState brand artwork: the RayState logo with connected light nodes",
+  },
+  faq: {
+    eyebrow: "FAQ",
+    title: "Common questions",
+    items: [
+      { q: "What does RayState build?", a: "We make our own apps — UBee, CoachIn and Staffly — and we design and develop websites, mobile applications and custom business software for clients." },
+      { q: "Can I use an existing RayState product instead of commissioning software?", a: "Yes. If UBee, CoachIn or Staffly fits your business, you can start with it directly. Visit each product's website to see whether it covers your needs." },
+      { q: "How do I start a custom project?", a: "Email contact@raystate.com with a short description of what you want to build, who will use it and any constraints. We will discuss the requirements together before agreeing on scope." },
+      { q: "Can the interface support English, French and Arabic?", a: "Yes, multilingual interfaces including full right-to-left Arabic layouts are something we work with regularly. Languages are agreed as part of each project." },
+      { q: "Are the existing products available for Android?", a: "Yes. UBee, CoachIn and Staffly are currently available on Google Play for Android." },
+      { q: "Do all projects work offline?", a: "Not necessarily. Our current apps support core operations offline, but for custom projects offline support depends on the requirements and is agreed per project." },
+      { q: "Where can I find current product pricing?", a: "Current prices and purchase details are shown inside each app and on its product website." },
+    ],
+  },
+  contact: {
+    eyebrow: "Contact",
+    title: "Let's talk about your project.",
+    lead: "Tell us what you want to build, or ask us about one of our apps. Email is the best way to reach us.",
+    email: "Email us",
+    follow: "Follow RayState",
+    subject: "New project inquiry",
+  },
+  footer: {
+    positioning: "Practical apps, websites and custom business software.",
+    products: "Products",
+    company: "Studio",
+    social: "Social",
+    language: "Language",
+    rights: "All rights reserved.",
+    legalNote: "Each app has its own privacy policy and terms on its product website.",
+  },
+};
+
+export type Dict = typeof en;
+
+const fr: Dict = {
+  meta: {
+    title: "RayState — Applications, sites web et logiciels métier sur mesure",
+    description:
+      "RayState crée UBee, CoachIn et Staffly, et conçoit des sites web, applications mobiles et logiciels métier sur mesure en français, anglais et arabe.",
+  },
+  a11y: {
+    skip: "Aller au contenu",
+    home: "Accueil RayState",
+    menuOpen: "Ouvrir le menu",
+    menuClose: "Fermer le menu",
+    mainNav: "Navigation principale",
+    language: "Choisir la langue",
+    newTab: "(s'ouvre dans un nouvel onglet)",
+    iconAlt: (n: string) => `Icône de l'application ${n}`,
+  },
+  nav: {
+    products: "Produits",
+    services: "Services",
+    approach: "Méthode",
+    about: "À propos",
+    contact: "Contact",
+    cta: "Lancer un projet",
+  },
+  hero: {
+    eyebrow: "Studio logiciel & éditeur d'applications",
+    title1: "Des logiciels utiles.",
+    title2: "Pensés pour votre quotidien.",
+    lead: "RayState crée des applications pratiques, des sites web modernes et des logiciels métier sur mesure — avec des interfaces claires et des expériences multilingues.",
+    primary: "Découvrir nos produits",
+    secondary: "Lancer un projet",
+    portfolio: "Nos applications",
+  },
+  products: {
+    eyebrow: "Nos produits",
+    title: "Trois applications pour la gestion au quotidien.",
+    lead: "Chaque application est un produit indépendant, conçu pour un type d'activité. Elles sont actuellement disponibles sur Android.",
+    audienceLabel: "Pour",
+    explore: (n: string) => `Découvrir ${n}`,
+    play: "Disponible sur Google Play",
+    items: {
+      ubee: {
+        category: "Caisse et stock pour commerces indépendants",
+        audience: "Commerçants et petites boutiques",
+        description:
+          "Gérez votre comptoir depuis votre téléphone : enregistrez les ventes, suivez le stock et sachez qui vous doit encore.",
+        capabilities: [
+          "Caisse mobile avec lecture de codes-barres",
+          "Gestion des produits et du stock",
+          "Soldes clients et règlements de dettes",
+          "Factures, reçus, dépenses et rapports",
+        ],
+        note: "Les opérations essentielles fonctionnent hors ligne.",
+        shotAlts: ["Écran d'accueil UBee", "Menu principal UBee", "Écran de l'application UBee"],
+      },
+      coachin: {
+        category: "Abonnements, séances et présences en salle de sport",
+        audience: "Gérants de salles, coachs, dojos et studios de fitness",
+        description:
+          "Réunissez adhérents, forfaits de séances et pointages au même endroit, directement à l'accueil.",
+        capabilities: [
+          "Fiches adhérents avec forfaits et dates d'expiration",
+          "Pointage par NFC et QR code",
+          "Présences, paiements et cartes d'adhérent numériques",
+          "Suivi cardio et minuteurs HIIT",
+        ],
+        note: "Les opérations essentielles fonctionnent hors ligne.",
+        shotAlts: ["Écran de pointage NFC CoachIn", "Formulaire nouvel adhérent CoachIn", "Écran de code PIN CoachIn"],
+      },
+      staffly: {
+        category: "Personnel, présences et administration RH",
+        audience: "Entreprises qui gèrent leur équipe depuis un appareil partagé sur le lieu de travail",
+        description:
+          "Suivez les présences, planifiez les horaires et gérez congés et paie depuis un seul appareil.",
+        capabilities: [
+          "Fiches employés, présences et pauses",
+          "Plannings et gestion des congés",
+          "Calcul de la paie brute et paiements enregistrés",
+          "Rapports et export de documents",
+        ],
+        note: "Les processus RH essentiels fonctionnent hors ligne. L'Accès employé est annoncé pour la prochaine version.",
+        shotAlts: ["Écran des présences Staffly", "Fiche employé Staffly", "Écran de pointage Staffly"],
+      },
+    },
+  },
+  services: {
+    eyebrow: "Services",
+    title: "Un projet précis en tête ? Construisons-le ensemble.",
+    lead: "En plus de nos propres produits, nous concevons et développons des logiciels pour les entreprises et les organisations.",
+    deliverables: "Exemples de projets",
+    items: [
+      {
+        title: "Conception et développement de sites web",
+        body: "Sites d'entreprise modernes et adaptatifs, vitrines de produits et expériences web sur mesure.",
+        examples: ["Site d'entreprise ou de studio", "Page de lancement de produit", "Site multilingue (FR · EN · AR)"],
+      },
+      {
+        title: "Développement d'applications mobiles",
+        body: "Des applications pensées autour des usages réels et des plateformes que vous devez prendre en charge.",
+        examples: ["Application destinée aux clients", "Outil de terrain ou d'accueil", "Application compagnon d'un service"],
+      },
+      {
+        title: "Logiciels métier sur mesure",
+        body: "Des outils pour vos processus, la tenue de vos registres et les flux propres à votre activité.",
+        examples: ["Outil de gestion interne", "Système de suivi et d'enregistrement", "Automatisation de processus"],
+      },
+    ],
+    note: "Le mode hors ligne, les plateformes et les fonctionnalités sont définis pour chaque projet.",
+    cta: "Dites-nous ce que vous voulez créer",
+  },
+  approach: {
+    eyebrow: "Méthode",
+    title: "Notre façon de travailler avec vous.",
+    steps: [
+      { title: "Comprendre", body: "Clarifier le public, les usages, le problème et les contraintes." },
+      { title: "Concevoir", body: "Définir la structure, l'interface et les interactions." },
+      { title: "Développer", body: "Réaliser l'expérience et les fonctionnalités convenues." },
+      { title: "Valider et livrer", body: "Vérifier les parcours importants et préparer la livraison." },
+    ],
+    note: "Le périmètre et le calendrier sont définis ensemble pour chaque projet.",
+  },
+  about: {
+    eyebrow: "À propos de RayState",
+    title: "Des logiciels adaptés à la réalité du terrain.",
+    body: [
+      "RayState conçoit des logiciels pratiques pour de vraies activités : vendre au comptoir, accueillir les adhérents d'une salle, suivre une équipe.",
+      "Nous soignons la clarté des interfaces, la simplicité des tâches quotidiennes et des produits qui parlent français, anglais et arabe.",
+    ],
+    points: ["Des outils concrets", "Des interfaces claires et soignées", "Français, anglais et arabe", "Le quotidien avant tout"],
+    tagline: "Des applications innovantes. Plus malines chaque jour.",
+    bannerAlt: "Visuel de marque RayState : le logo RayState entouré de points lumineux connectés",
+  },
+  faq: {
+    eyebrow: "FAQ",
+    title: "Questions fréquentes",
+    items: [
+      { q: "Que crée RayState ?", a: "Nous éditons nos propres applications — UBee, CoachIn et Staffly — et nous concevons et développons des sites web, des applications mobiles et des logiciels métier sur mesure pour nos clients." },
+      { q: "Puis-je utiliser un produit RayState existant plutôt que de commander un logiciel ?", a: "Oui. Si UBee, CoachIn ou Staffly correspond à votre activité, vous pouvez commencer directement avec. Consultez le site de chaque produit pour vérifier qu'il répond à vos besoins." },
+      { q: "Comment démarrer un projet sur mesure ?", a: "Écrivez à contact@raystate.com en décrivant brièvement ce que vous souhaitez créer, qui l'utilisera et vos éventuelles contraintes. Nous discuterons ensemble des besoins avant de définir le périmètre." },
+      { q: "L'interface peut-elle être en français, anglais et arabe ?", a: "Oui, nous travaillons régulièrement sur des interfaces multilingues, y compris des mises en page arabes entièrement de droite à gauche. Les langues sont définies pour chaque projet." },
+      { q: "Les produits existants sont-ils disponibles sur Android ?", a: "Oui. UBee, CoachIn et Staffly sont actuellement disponibles sur Google Play pour Android." },
+      { q: "Tous les projets fonctionnent-ils hors ligne ?", a: "Pas forcément. Nos applications actuelles gèrent les opérations essentielles hors ligne, mais pour un projet sur mesure, le mode hors ligne dépend des besoins et se décide au cas par cas." },
+      { q: "Où trouver les tarifs actuels des produits ?", a: "Les prix et conditions d'achat à jour sont indiqués dans chaque application et sur son site." },
+    ],
+  },
+  contact: {
+    eyebrow: "Contact",
+    title: "Parlons de votre projet.",
+    lead: "Dites-nous ce que vous voulez créer ou posez-nous une question sur nos applications. L'e-mail est le meilleur moyen de nous joindre.",
+    email: "Nous écrire",
+    follow: "Suivre RayState",
+    subject: "Nouvelle demande de projet",
+  },
+  footer: {
+    positioning: "Applications pratiques, sites web et logiciels métier sur mesure.",
+    products: "Produits",
+    company: "Studio",
+    social: "Réseaux",
+    language: "Langue",
+    rights: "Tous droits réservés.",
+    legalNote: "Chaque application dispose de sa propre politique de confidentialité et de ses conditions sur son site.",
+  },
+};
+
+const ar: Dict = {
+  meta: {
+    title: "RayState — تطبيقات عملية ومواقع إلكترونية وبرمجيات أعمال مخصّصة",
+    description:
+      "تطوّر RayState تطبيقات UBee وCoachIn وStaffly، وتصمّم مواقع إلكترونية وتطبيقات جوّال وبرمجيات أعمال مخصّصة بالعربية والفرنسية والإنجليزية.",
+  },
+  a11y: {
+    skip: "الانتقال إلى المحتوى",
+    home: "الصفحة الرئيسية لـ RayState",
+    menuOpen: "فتح القائمة",
+    menuClose: "إغلاق القائمة",
+    mainNav: "التنقل الرئيسي",
+    language: "اختيار اللغة",
+    newTab: "(يُفتح في علامة تبويب جديدة)",
+    iconAlt: (n: string) => `أيقونة تطبيق ${n}`,
+  },
+  nav: {
+    products: "المنتجات",
+    services: "الخدمات",
+    approach: "منهجيتنا",
+    about: "من نحن",
+    contact: "تواصل معنا",
+    cta: "ابدأ مشروعك",
+  },
+  hero: {
+    eyebrow: "استوديو برمجيات وصانع تطبيقات",
+    title1: "برمجيات عملية.",
+    title2: "تناسب طريقة عملك.",
+    lead: "تبتكر RayState تطبيقات عملية ومواقع إلكترونية حديثة وبرمجيات أعمال مخصّصة، بواجهات واضحة وتجارب متعددة اللغات.",
+    primary: "اكتشف منتجاتنا",
+    secondary: "ابدأ مشروعك",
+    portfolio: "تطبيقاتنا",
+  },
+  products: {
+    eyebrow: "منتجاتنا",
+    title: "ثلاثة تطبيقات لتسيير أعمالك اليومية.",
+    lead: "كل تطبيق منتج مستقل صُمّم لنوع محدّد من الأعمال، وهي متاحة حاليًا على أندرويد.",
+    audienceLabel: "موجّه إلى",
+    explore: (n: string) => `اكتشف ${n}`,
+    play: "حمّله من Google Play",
+    items: {
+      ubee: {
+        category: "نقطة بيع ومخزون للمتاجر المستقلة",
+        audience: "أصحاب المحلات والمتاجر الصغيرة",
+        description: "أدِر محلّك من هاتفك: سجّل المبيعات، ونظّم المخزون، واعرف من لا يزال مدينًا لك.",
+        capabilities: [
+          "نقطة بيع على الجوّال مع مسح الباركود",
+          "إدارة المنتجات والمخزون",
+          "أرصدة الزبائن وتسوية الديون",
+          "الفواتير والإيصالات والمصاريف والتقارير",
+        ],
+        note: "العمليات الأساسية تعمل دون اتصال بالإنترنت.",
+        shotAlts: ["الشاشة الرئيسية لتطبيق UBee", "القائمة الرئيسية لتطبيق UBee", "شاشة من تطبيق UBee"],
+      },
+      coachin: {
+        category: "اشتراكات وحصص وحضور القاعات الرياضية",
+        audience: "أصحاب القاعات الرياضية والمدرّبون ونوادي الفنون القتالية واستوديوهات اللياقة",
+        description: "اجمع المشتركين وباقات الحصص وتسجيلات الحضور في مكان واحد، مباشرة عند الاستقبال.",
+        capabilities: [
+          "ملفات المشتركين مع باقات الحصص وتواريخ الانتهاء",
+          "تسجيل الحضور عبر NFC ورمز QR",
+          "سجلات الحضور والمدفوعات وبطاقات اشتراك رقمية",
+          "سجلات تمارين الكارديو ومؤقّتات HIIT",
+        ],
+        note: "العمليات الأساسية تعمل دون اتصال بالإنترنت.",
+        shotAlts: ["شاشة تسجيل الحضور عبر NFC في CoachIn", "نموذج مشترك جديد في CoachIn", "شاشة الرمز السري في CoachIn"],
+      },
+      staffly: {
+        category: "الموظفون والحضور والشؤون الإدارية",
+        audience: "الشركات التي تدير فريقها من جهاز مشترك في مكان العمل",
+        description: "تابع الحضور، ونظّم جداول العمل، وأدِر الإجازات وسجلات الأجور من جهاز واحد.",
+        capabilities: [
+          "ملفات الموظفين والحضور وفترات الاستراحة",
+          "جداول العمل وإدارة الإجازات",
+          "حساب الأجر الإجمالي وتسجيل المدفوعات",
+          "التقارير وتصدير المستندات",
+        ],
+        note: "مهام الموارد البشرية الأساسية تعمل دون اتصال. ميزة «وصول الموظفين» معلنة للإصدار القادم.",
+        shotAlts: ["شاشة الحضور في Staffly", "ملف موظف في Staffly", "شاشة نقاط التسجيل في Staffly"],
+      },
+    },
+  },
+  services: {
+    eyebrow: "الخدمات",
+    title: "لديك فكرة محدّدة؟ لنبنِها معًا.",
+    lead: "إلى جانب منتجاتنا، نصمّم ونطوّر برمجيات للشركات والمؤسسات.",
+    deliverables: "أمثلة على المشاريع",
+    items: [
+      {
+        title: "تصميم وتطوير المواقع الإلكترونية",
+        body: "مواقع أعمال حديثة متجاوبة، وصفحات لعرض المنتجات، وتجارب ويب مصمّمة لغرض محدّد.",
+        examples: ["موقع شركة أو استوديو", "صفحة إطلاق منتج", "موقع متعدد اللغات (AR · FR · EN)"],
+      },
+      {
+        title: "تطوير تطبيقات الجوّال",
+        body: "تطبيقات مصمّمة حول طريقة عمل المستخدمين الفعلية والمنصّات التي تحتاج إليها.",
+        examples: ["تطبيق موجّه للعملاء", "أداة ميدانية أو للاستقبال", "تطبيق مرافق لخدمة"],
+      },
+      {
+        title: "برمجيات أعمال مخصّصة",
+        body: "أدوات لعملياتك التشغيلية وحفظ السجلات وسير العمل الخاص بنشاطك.",
+        examples: ["أداة إدارة داخلية", "نظام سجلات ومتابعة", "أتمتة سير العمل"],
+      },
+    ],
+    note: "يُتّفق على العمل دون اتصال والمنصّات والميزات لكل مشروع على حدة.",
+    cta: "أخبرنا بما تريد بناءه",
+  },
+  approach: {
+    eyebrow: "منهجيتنا",
+    title: "كيف نقترح أن نعمل معًا.",
+    steps: [
+      { title: "الفهم", body: "توضيح الجمهور وسير العمل والمشكلة والقيود." },
+      { title: "التصميم", body: "رسم البنية والواجهة والتفاعلات." },
+      { title: "التطوير", body: "تنفيذ التجربة والوظائف المتّفق عليها." },
+      { title: "التحقق والتسليم", body: "مراجعة المسارات المهمة وتجهيز التسليم." },
+    ],
+    note: "يُحدَّد النطاق والجدول الزمني معًا لكل مشروع.",
+  },
+  about: {
+    eyebrow: "عن RayState",
+    title: "برمجيات تناسب طريقة العمل الفعلية.",
+    body: [
+      "تصنع RayState برمجيات عملية لأنشطة حقيقية: البيع عند الصندوق، واستقبال المشتركين في القاعة، ومتابعة فريق العمل.",
+      "نهتم بوضوح الواجهات وبساطة المهام اليومية، وبمنتجات تخاطب الناس بالعربية والفرنسية والإنجليزية.",
+    ],
+    points: ["أدوات عملية لعمل حقيقي", "واجهات واضحة ومدروسة", "العربية والفرنسية والإنجليزية", "الأولوية للمهام اليومية"],
+    tagline: "تطبيقات مبتكرة. أذكى كل يوم.",
+    bannerAlt: "تصميم هوية RayState: شعار RayState تحيط به نقاط ضوئية متصلة",
+  },
+  faq: {
+    eyebrow: "الأسئلة الشائعة",
+    title: "أسئلة متكرّرة",
+    items: [
+      { q: "ماذا تصنع RayState؟", a: "نطوّر تطبيقاتنا الخاصة — UBee وCoachIn وStaffly — ونصمّم ونطوّر للعملاء مواقع إلكترونية وتطبيقات جوّال وبرمجيات أعمال مخصّصة." },
+      { q: "هل يمكنني استخدام أحد منتجات RayState بدل طلب برمجية مخصّصة؟", a: "نعم. إذا كان UBee أو CoachIn أو Staffly يناسب نشاطك، يمكنك البدء به مباشرة. زُر موقع كل منتج لتتأكد من أنه يلبّي احتياجاتك." },
+      { q: "كيف أبدأ مشروعًا مخصّصًا؟", a: "راسلنا على contact@raystate.com بوصف موجز لما تريد بناءه ومن سيستخدمه وأي قيود لديك. سنناقش المتطلبات معًا قبل الاتفاق على النطاق." },
+      { q: "هل يمكن أن تدعم الواجهة العربية والفرنسية والإنجليزية؟", a: "نعم، نعمل بانتظام على واجهات متعددة اللغات، بما فيها تخطيطات عربية كاملة من اليمين إلى اليسار. ويُتّفق على اللغات ضمن كل مشروع." },
+      { q: "هل المنتجات الحالية متاحة على أندرويد؟", a: "نعم. تطبيقات UBee وCoachIn وStaffly متاحة حاليًا على Google Play لأجهزة أندرويد." },
+      { q: "هل تعمل جميع المشاريع دون اتصال؟", a: "ليس بالضرورة. تطبيقاتنا الحالية تدعم العمليات الأساسية دون اتصال، أما في المشاريع المخصّصة فيعتمد ذلك على المتطلبات ويُتّفق عليه لكل مشروع." },
+      { q: "أين أجد الأسعار الحالية للمنتجات؟", a: "تظهر الأسعار وتفاصيل الشراء الحالية داخل كل تطبيق وعلى موقعه الإلكتروني." },
+    ],
+  },
+  contact: {
+    eyebrow: "تواصل معنا",
+    title: "لنتحدث عن مشروعك.",
+    lead: "أخبرنا بما تريد بناءه أو اسألنا عن أحد تطبيقاتنا. البريد الإلكتروني هو أفضل وسيلة للتواصل معنا.",
+    email: "راسلنا",
+    follow: "تابع RayState",
+    subject: "طلب مشروع جديد",
+  },
+  footer: {
+    positioning: "تطبيقات عملية ومواقع إلكترونية وبرمجيات أعمال مخصّصة.",
+    products: "المنتجات",
+    company: "الاستوديو",
+    social: "التواصل الاجتماعي",
+    language: "اللغة",
+    rights: "جميع الحقوق محفوظة.",
+    legalNote: "لكل تطبيق سياسة خصوصية وشروط استخدام خاصة به على موقعه.",
+  },
+};
+
+export const DICTS: Record<Lang, Dict> = { en, fr, ar };
