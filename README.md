@@ -1,3 +1,5 @@
+codex resume 01a162f6-b813-74c2-a0ba-557e4bf9815a
+
 # RayState
 
 The English, French and Arabic website for **https://raystate.com/**. GitHub Pages serves these checked-in HTML, CSS, JavaScript and media files directly. There is no React, TanStack, Tailwind compiler, Vite, Nitro, package manager, backend or required build step.
